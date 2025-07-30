@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aluve Mcoki - Cybersecurity & Networking Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0a0a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cert-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item p {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #ccc;
+        }
+
+        .modal-title {
+            color: white;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: translateY(-50%) scale(0.8); }
+            to { transform: translateY(-50%) scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cert-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                max-height: 80%;
+            }
+        }
+        /* Navigation */
+        .nav {
+            background: rgba(0,0,0,0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-title {
+            color: #ff1744;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ff1744;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #ff1744, #e91e63, #ad1457);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(10px) translateY(10px); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: rgba(255,23,68,0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            background: linear-gradient(45deg, #ff1744, #e91e63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff1744;
+            box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 2;
+            font-size: 1.2em;
+            line-height: 1.8;
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,23,68,0.3);
+        }
+
+        .about-text strong {
+            color: #ff1744;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,23,68,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            border-color: #ff1744;
+            box-shadow: 0 20px 40px rgba(255,23,68,0.2);
+        }
+
+        .skill-category h3 {
+            color: #ff1744;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff1744, #e91e63);
+            transform: translateX(-50%);
+        }
+
+        .experience-item {
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            margin-left: 60%;
+            border: 1px solid rgba(255,23,68,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:nth-child(even) {
+            margin-left: 0;
+            margin-right: 60%;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -15px;
+            width: 30px;
+            height: 30px;
+            background: #ff1744;
+            border-radius: 50%;
+            border: 4px solid #000;
+        }
+
+        .experience-item:nth-child(even)::before {
+            left: auto;
+            right: -15px;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,23,68,0.2);
+        }
+
+        .experience-year {
+            color: #ff1744;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .experience-company {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #e91e63;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,23,68,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff1744, #e91e63);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255,23,68,0.2);
+        }
+
+        .project-title {
+            color: #ff1744;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #e91e63;
+            text-decoration: none;
+            border: 1px solid #e91e63;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #e91e63;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Certifications Section */
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-item {
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,23,68,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255,23,68,0.2);
+        }
+
+        .cert-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .cert-item p {
+            color: #ff1744;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ff1744;
+            margin-bottom: 20px;
+        }
+
+        .footer-section a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff1744;
+        }
+
+        .footer-professional,
+        .footer-professional-alt,
+        .footer-copyright,
+        .footer-credits {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        /* Chatbot Styles */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+        }
+
+        #chatbot-toggle {
+            background: linear-gradient(135deg, #ff1744, #e91e63);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(255, 23, 68, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #chatbot-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 23, 68, 0.6);
+        }
+
+        #chatbot-icon {
+            font-size: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        #chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: rgba(0, 0, 0, 0.95);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .chatbot-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        #chatbot-header {
+            background: linear-gradient(135deg, #ff1744, #e91e63);
+            color: white;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatbot-avatar {
+            font-size: 24px;
+        }
+
+        .chatbot-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .chatbot-status {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        #chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        #chatbot-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .message-avatar {
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .bot-message .message-avatar {
+            background: linear-gradient(135deg, #ff1744, #e91e63);
+        }
+
+        .user-message .message-avatar {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .message-content {
+            flex: 1;
+        }
+
+        .message-text {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        .bot-message .message-text {
+            background: rgba(255, 23, 68, 0.2);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+        }
+
+        .user-message .message-text {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .user-message {
+            flex-direction: row-reverse;
+        }
+
+        .user-message .message-text {
+            text-align: right;
+        }
+
+        #chatbot-input-container {
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        #chatbot-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #chatbot-input:focus {
+            border-color: #ff1744;
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.3);
+        }
+
+        #chatbot-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        #chatbot-send {
+            background: linear-gradient(135deg, #ff1744, #e91e63);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #chatbot-send:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(255, 23, 68, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .experience-item {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .experience-timeline::before {
+                left: 20px;
+            }
+            
+            .experience-item::before {
+                left: 5px !important;
+            }
+
+            #chatbot-window {
+                width: 300px;
+                height: 400px;
+            }
+            
+            #chatbot-container {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h2 class="logo-title">AM</h2>
+                </div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>ALUVE MCOKI</h1>
+                <p>Cybersecurity & Networking Professional</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>mcokialuve05@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Cape Town, Western Cape</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📲</span>
+                        <span>Call: 0634818014</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="profile.jpeg" alt="Aluve Mcoki" class="profile-image">
+                </div>
+                <div class="about-text">
+                    <p>I am an <strong>aspiring cybersecurity and networking professional</strong> currently on a learnership with CAPACITI. I hold <strong>Cisco CCNA certifications</strong> and have gained foundational skills in networking, cybersecurity, and AI concepts.</p>
+                    
+                    <p>I am passionate about <strong>building secure networks</strong>, protecting digital systems, and continuously growing in the tech industry. My journey combines technical expertise with a drive for innovation in cybersecurity.</p>
+                    
+                    <p><strong>Languages:</strong> English, isiXhosa, Afrikaans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🌐 Networking & Infrastructure</h3>
+                    <div class="skill-item">Cisco CCNA Certified</div>
+                    <div class="skill-item">Network Design & Implementation</div>
+                    <div class="skill-item">Infrastructure Management</div>
+                    <div class="skill-item">Network Troubleshooting</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🤖 AI Integration in IT</h3>
+                    <div class="skill-item">AI-Powered Security Solutions</div>
+                    <div class="skill-item">Machine Learning Applications</div>
+                    <div class="skill-item">Chatbot Development</div>
+                    <div class="skill-item">Sentiment Analysis</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🔧 Tools & Technologies</h3>
+                    <div class="skill-item">Cisco Packet Tracer</div>
+                    <div class="skill-item">Wireshark Network Analysis</div>
+                    <div class="skill-item">Linux Command Line</div>
+                    <div class="skill-item">Network Automation & Monitoring</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🛡️ Cybersecurity</h3>
+                    <div class="skill-item">Security Assessment</div>
+                    <div class="skill-item">Threat Analysis</div>
+                    <div class="skill-item">Digital System Protection</div>
+                    <div class="skill-item">Security Best Practices</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>💡 Soft Skills</h3>
+                    <div class="skill-item">Communication & Collaboration</div>
+                    <div class="skill-item">Time Management</div>
+                    <div class="skill-item">Critical Thinking</div>
+                    <div class="skill-item">Career Development Focus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-year">2025</div>
+                    <div class="experience-company">CAPACITI - IT Learnership</div>
+                    <p>Completed an 8-week intensive AI and cybersecurity program using Agile methods. Built AI projects like chatbots and sentiment analyzers with tools such as ChatGPT and Hugging Face. Earned industry certifications and developed practical skills in AI, machine learning, and cybersecurity.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-year">2024</div>
+                    <div class="experience-company">NOVELTY ANCHORS - Sales Assistant</div>
+                    <p>Developed customer service skills and business acumen while working in a retail environment. Enhanced communication abilities and gained experience in customer relationship management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">🤖 RhEmA_2 Chatbot</h3>
+                    <p>Advanced chatbot implementation showcasing AI integration capabilities and natural language processing skills.</p>
+                    <a href="https://poe.com/RhEmA_2" class="project-link" target="_blank" rel="noopener">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">✨ FaithLift Platform</h3>
+                    <p>Web application demonstrating full-stack development skills with focus on user experience and responsive design.</p>
+                    <a href="https://aluve-netcyb.github.io/Faithlift/" class="project-link" target="_blank" rel="noopener">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">🎯 Portfolio Application</h3>
+                    <p>Modern web application showcasing technical skills in frontend development and user interface design.</p>
+                    <a href="https://tiny-hamster-a38528.netlify.app" class="project-link" target="_blank" rel="noopener">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">📊 Project Collaboration Board</h3>
+                    <p>Interactive project management and collaboration tool built with modern web technologies.</p>
+                    <a href="https://miro.com/app/board/uXjVIxoQefM=/" class="project-link" target="_blank" rel="noopener">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">✨ Rema analysys</h3>
+                    <p>Web application demonstrating full-stack development skills with focus on user experience and responsive design.</p>
+                    <a href=https://rhema-a88b93analysys.netlify.app/' class="project-link" target="_blank" rel="noopener">View Project</a>
+                </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Modal for zoomed image -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div id="modalTitle" class="modal-title"></div>
+        </div>
+    </div>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="cert-gallery">
+                <!-- Certification 1 -->
+                <div class="cert-item" onclick="openModal('ccna1.jpg', 'CCNAv7: Introduction to Networks')">
+                    <img src="ccna1.jpg" alt="CCNA Introduction to Networks">
+                    <p>CCNAv7: Introduction to Networks</p>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="cert-item" onclick="openModal('ccna2.jpg', 'CCNAv7: Enterprise Networking, Security & Automation')">
+                    <img src="ccna2.jpg" alt="CCNA Enterprise Networking, Security & Automation">
+                    <p>CCNAv7: Enterprise Networking, Security & Automation</p>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="cert-item" onclick="openModal('ccna3.jpg', 'CCNAv7: Enterprise Networking, Security & Automation')">
+                    <img src="ccna3.jpg" alt="CCNA Enterprise Networking, Security & Automation">
+                    <p>CCNAv7: Enterprise Networking, Security & Automation</p>
+                </div>
+
+                <!-- Certification 4 -->
+                <div class="cert-item" onclick="openModal('IT_essentials.jpg', 'IT Essentials')">
+                    <img src="IT_essentials.jpg" alt="IT Essentials">
+                    <p>IT Essentials</p>
+                </div>
+
+                <!-- Certification 5 -->
+                <div class="cert-item" onclick="openModal('funde_of_ai_and.jpg', 'Fundamentals of AI')">
+                    <img src="funde_of_ai_and.jpg" alt="Fundamentals of AI">
+                    <p>Fundamentals of AI</p>
+                </div>
+
+                <!-- Certification 6 -->
+                <div class="cert-item" onclick="openModal('intro_to_ai.jpg', 'Introduction to AI')">
+                    <img src="intro_to_ai.jpg" alt="Introduction to AI">
+                    <p>Introduction to AI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:mcokialuve05@gmail.com">mcokialuve05@gmail.com</a></p>
+                    <p><a href="mailto:Aluve.mcoki@capaciti.org.za">Aluve.mcoki@capaciti.org.za</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>🔗 Professional Links</h3>
+                    <p><a href="https://www.linkedin.com/in/aluve-mcoki-b60513375" target="_blank" rel="noopener">LinkedIn Profile</a></p>
+                    <p><a href="https://github.com/Aluve-netcyb/rhema_2chatbot" target="_blank" rel="noopener">GitHub Projects</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>📍 Location</h3>
+                    <p>Cape Town, Western Cape</p>
+                    <p>South Africa</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>🎓 Education</h3>
+                    <p>CCNA Certified (2024)</p>
+                    <p>National Senior Certificate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-professional-alt">Aspiring Cybersecurity & Networking Professional</p>
+            <p class="footer-professional">Aluve Mcoki</p>
+            <p class="footer-copyright">© 2025 Aluve Mcoki. All rights reserved.</p>
+            <p class="footer-credits">Designed and Developed by Aluve Mcoki</p>
+            <p class="footer-credits">Inspired by the journey of learning and growth in the tech industry.</p>
+        </div>
+    </footer>
+
+    <!-- REMA Chatbot -->
+    <div id="chatbot-container">
+        <div id="chatbot-toggle" onclick="toggleChatbot()">
+            <div id="chatbot-icon">🤖</div>
+            <div id="chatbot-label">REMA</div>
+        </div>
+        
+        <div id="chatbot-window" class="chatbot-hidden">
+            <div id="chatbot-header">
+                <div class="chatbot-title">
+                    <span class="chatbot-avatar">🤖</span>
+                    <div>
+                        <div class="chatbot-name">REMA</div>
+                        <div class="chatbot-status">Ask me about Aluve's portfolio</div>
+                    </div>
+                </div>
+                <button id="chatbot-close" type="button" onclick="toggleChatbot()">×</button>
+            </div>
+            
+            <div id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <div class="message-text">Hi! I'm REMA, Aluve's portfolio assistant. I can answer questions about his experience, skills, projects, and background. What would you like to know?</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="Ask me about Aluve..." onkeypress="handleKeyPress(event)">
+                <button id="chatbot-send" type="button" onclick="sendMessage()">📤</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Portfolio Knowledge Base for REMA
+        const portfolioKnowledge = {
+            personal: {
+                name: "Aluve Mcoki",
+                age: 20,
+                location: "Cape Town, Western Cape",
+                languages: ["English", "isiXhosa", "Afrikaans"],
+                driversLicense: "No"
+            },
+            contact: {
+                email: ["mcokialuve05@gmail.com", "Aluve.mcoki@capaciti.org.za"],
+                linkedin: "https://www.linkedin.com/in/aluve-mcoki-b60513375",
+                github: "https://github.com/Aluve-netcyb/rhema_2chatbot"
+            },
+            education: {
+                certifications: ["CCNA (Cisco Certified Network Associate) 2024"],
+                schooling: ["National Senior Certificate (Matric)"]
+            },
+            skills: {
+                technical: [
+                    "Networking & Infrastructure",
+                    "AI Integration in IT",
+                    "Network Automation & Monitoring",
+                    "Cisco Packet Tracer",
+                    "Wireshark",
+                    "Linux commands",
+                    "Cybersecurity"
+                ],
+                soft: [
+                    "Communication & collaboration",
+                    "Time management",
+                    "Critical thinking",
+                    "Career development"
+                ]
+            },
+            experience: [
+                {
+                    company: "CAPACITI",
+                    role: "IT Learnership",
+                    year: "2025",
+                    description: "Completed 8-week intensive AI and cybersecurity program using Agile methods. Built AI projects like chatbots and sentiment analyzers with ChatGPT and Hugging Face."
+                },
+                {
+                    company: "Novelty Anchors",
+                    role: "Sales Assistant",
+                    year: "2024",
+                    description: "Worked in sales and customer service"
+                }
+            ],
+            projects: [
+                {
+                    name: "RhEmA_2 Chatbot",
+                    url: "https://poe.com/RhEmA_2",
+                    description: "Advanced chatbot implementation"
+                },
+                {
+                    name: "FaithLift",
+                    url: "https://aluve-netcyb.github.io/Faithlift/",
+                    description: "Web application project"
+                },
+                {
+                    name: "Portfolio App",
+                    url: "https://tiny-hamster-a38528.netlify.app",
+                    description: "Personal portfolio website"
+                }
+            ],
+            references: [
+                "Brittaney Saptoe (Brittany.Saptoe@capaciti.org.za)",
+                "Brandon September (Brandon.September@capaciti.org.za)",
+                "Omphile Rantswele (Omphile.Rantswele@capaciti.org.za)"
+            ]
+        };
+
+        // Chatbot functionality
+        let chatbotOpen = false;
+
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbot-window');
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                chatbotWindow.classList.remove('chatbot-hidden');
+                chatbotWindow.classList.add('chatbot-visible');
+                document.getElementById('chatbot-input').focus();
+            } else {
+                chatbotWindow.classList.remove('chatbot-visible');
+                chatbotWindow.classList.add('chatbot-hidden');
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbot-input');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Simulate typing delay
+            setTimeout(() => {
+                const response = generateResponse(message);
+                addMessage(response, 'bot');
+            }, 1000);
+        }
+
+        function addMessage(text, type) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message`;
+            
+            const avatar = type === 'bot' ? '🤖' : '👤';
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    <div class="message-text">${text}</div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function generateResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            // Personal Information
+            if (message.includes('name') || message.includes('who')) {
+                return `His name is ${portfolioKnowledge.personal.name}. He's a ${portfolioKnowledge.personal.age}-year-old aspiring cybersecurity and networking professional from ${portfolioKnowledge.personal.location}.`;
+            }
+            
+            if (message.includes('age') || message.includes('old')) {
+                return `Aluve is ${portfolioKnowledge.personal.age} years old.`;
+            }
+            
+            if (message.includes('location') || message.includes('where') || message.includes('live')) {
+                return `Aluve is located in ${portfolioKnowledge.personal.location}, South Africa.`;
+            }
+            
+            if (message.includes('language') || message.includes('speak')) {
+                return `Aluve speaks ${portfolioKnowledge.personal.languages.join(', ')}. He's multilingual which is great for the diverse South African market.`;
+            }
+            
+            // Contact Information
+            if (message.includes('contact') || message.includes('email') || message.includes('reach')) {
+                return `You can reach Aluve at ${portfolioKnowledge.contact.email[0]} or ${portfolioKnowledge.contact.email[1]}. He's also on LinkedIn and GitHub.`;
+            }
+            
+            if (message.includes('linkedin') || message.includes('social')) {
+                return `You can find Aluve on LinkedIn at ${portfolioKnowledge.contact.linkedin}`;
+            }
+            
+            if (message.includes('github') || message.includes('code')) {
+                return `Check out Aluve's GitHub projects at ${portfolioKnowledge.contact.github}`;
+            }
+            
+            // Education & Certifications
+            if (message.includes('education') || message.includes('study') || message.includes('school')) {
+                return `Aluve has his National Senior Certificate (Matric) and is CCNA certified (Cisco Certified Network Associate) as of 2024.`;
+            }
+            
+            if (message.includes('ccna') || message.includes('cisco') || message.includes('certification')) {
+                return `Yes! Aluve is CCNA certified (Cisco Certified Network Associate) as of 2024. This certification demonstrates his networking expertise.`;
+            }
+            
+            // Skills
+            if (message.includes('skill') || message.includes('technical') || message.includes('can do')) {
+                return `Aluve has strong technical skills including: ${portfolioKnowledge.skills.technical.slice(0, 4).join(', ')}, and more. He also has excellent soft skills like communication, time management, and critical thinking.`;
+            }
+            
+            if (message.includes('networking') || message.includes('network')) {
+                return `Aluve specializes in networking and infrastructure! He's CCNA certified and experienced with Cisco Packet Tracer, network automation, and monitoring. He's passionate about building secure networks.`;
+            }
+            
+            if (message.includes('ai') || message.includes('artificial intelligence') || message.includes('machine learning')) {
+                return `Aluve has great AI integration skills! He's worked with ChatGPT, Hugging Face, and built AI projects like chatbots and sentiment analyzers during his CAPACITI learnership.`;
+            }
+            
+            if (message.includes('cybersecurity') || message.includes('security')) {
+                return `Cybersecurity is one of Aluve's main focuses! He completed an intensive cybersecurity program at CAPACITI and is passionate about protecting digital systems and building secure networks.`;
+            }
+            
+            // Experience
+            if (message.includes('experience') || message.includes('work') || message.includes('job')) {
+                return `Aluve is currently on an IT learnership with CAPACITI (2025) where he completed an intensive AI and cybersecurity program. He also worked as a Sales Assistant at Novelty Anchors in 2024.`;
+            }
+            
+            if (message.includes('capaciti') || message.includes('learnership')) {
+                return `Aluve completed an 8-week intensive AI and cybersecurity program at CAPACITI using Agile methods. He built AI projects like chatbots and sentiment analyzers, and earned industry certifications.`;
+            }
+            
+            // Projects
+            if (message.includes('project') || message.includes('portfolio') || message.includes('built')) {
+                return `Aluve has several impressive projects: RhEmA_2 Chatbot, FaithLift web application, and his portfolio website. You can check them out through the links in his portfolio!`;
+            }
+            
+            if (message.includes('chatbot') || message.includes('rhema')) {
+                return `The RhEmA_2 Chatbot is one of Aluve's featured projects! It demonstrates his AI integration skills and chatbot development capabilities. You can check it out at https://poe.com/RhEmA_2`;
+            }
+            
+            // References
+            if (message.includes('reference') || message.includes('recommendation')) {
+                return `Aluve has professional references from CAPACITI including Brittaney Saptoe, Brandon September, and Omphile Rantswele. These are industry professionals who can vouch for his skills and work ethic.`;
+            }
+            
+            // Career Goals
+            if (message.includes('goal') || message.includes('future') || message.includes('career')) {
+                return `Aluve is passionate about building secure networks, protecting digital systems, and continuously growing in the tech industry. He's focused on cybersecurity and networking as his career path.`;
+            }
+            
+            // Availability
+            if (message.includes('available') || message.includes('hire') || message.includes('opportunity')) {
+                return `Aluve is an aspiring professional actively building his career in cybersecurity and networking. For opportunities, you can reach him at mcokialuve05@gmail.com or through his LinkedIn profile.`;
+            }
+            
+            // Default responses
+            const defaultResponses = [
+                "I can help you learn about Aluve's skills, experience, projects, and background. What specific aspect would you like to know more about?",
+                "Feel free to ask me about Aluve's technical skills, certifications, projects, or any other aspect of his portfolio!",
+                "I'm here to answer questions about Aluve's cybersecurity expertise, networking skills, AI projects, and professional experience. What interests you most?",
+                "You can ask me about Aluve's education, work experience, technical skills, or any of his projects. How can I help you learn more about him?"
+            ];
+            
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0,0,0,0.95)';
+            } else {
+                nav.style.background = 'rgba(0,0,0,0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
